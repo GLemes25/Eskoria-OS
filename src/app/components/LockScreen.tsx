@@ -36,12 +36,18 @@ export const LockScreen = ({ onUnlock }: LockScreenProps) => {
       style={{ fontFamily: "'JetBrains Mono', monospace" }}
     >
       <div className="absolute inset-0 z-0">
-        <Image
-          src="/images/bg-banda.jpg"
-          alt="Wallpaper"
-          fill
-          className="object-cover opacity-40 mix-blend-luminosity"
-        />
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          className="w-full h-full object-cover opacity-40 mix-blend-luminosity pointer-events-none"
+        >
+          <source
+            src="https://res.cloudinary.com/dk7zfhbrj/video/upload/f_auto,q_auto/v1780000153/transitionlogoeskoria_zaoupz.mp4"
+            type="video/mp4"
+          />
+        </video>
         <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
       </div>
 
@@ -69,7 +75,7 @@ export const LockScreen = ({ onUnlock }: LockScreenProps) => {
               />
             </div>
             <div className="text-kat-text text-2xl tracking-[2px] uppercase font-bold">
-              Eskoria
+              <Image src="/nameuser.svg" alt="Logo" width={128} height={128} />
             </div>
           </div>
 
