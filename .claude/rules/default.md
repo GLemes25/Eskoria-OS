@@ -12,6 +12,10 @@
 
 ## Convenções de Código
 
+### Comentários (PROIBIDO)
+
+- **NÃO UTILIZE COMENTÁRIOS:** É expressamente proibido gerar, inserir ou manter comentários no código-fonte (seja inline `//`, em bloco `/* */` ou JSX `{/* */}`). O código deve ser limpo e autoexplicativo através da nomenclatura semântica de variáveis, componentes e funções.
+
 ### Geral
 
 - Use TypeScript estrito. Nunca use `any` sem justificativa explícita em comentário.

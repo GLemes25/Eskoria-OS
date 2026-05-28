@@ -51,11 +51,9 @@ export const Desktop = () => {
     >
       {isGlitching && !isRevealing && <GlobalGlitchOverlay />}
 
-      {/* Main Desktop Area */}
       <div
         className={`relative flex-1 w-full overflow-hidden ${isGlitching ? "animate-[pulse_0.2s_infinite]" : ""}`}
       >
-        {/* Background — Base Layer */}
         <div className="absolute inset-0">
           <Image
             src={BG_URL}
@@ -65,7 +63,6 @@ export const Desktop = () => {
           />
         </div>
 
-        {/* Chromatic aberration layers when glitching */}
         {isGlitching && (
           <>
             <div className="absolute inset-0">
@@ -87,7 +84,6 @@ export const Desktop = () => {
           </>
         )}
 
-        {/* Background — Top Layer (Corrupted Digital Mesh) */}
         <div className="absolute inset-0 pointer-events-none">
           <Image
             src={MESH_URL}
@@ -97,7 +93,6 @@ export const Desktop = () => {
           />
         </div>
 
-        {/* CRT Scanline / Grid Effect */}
         <div
           className="absolute inset-0 pointer-events-none mix-blend-multiply opacity-50 z-0"
           style={{
@@ -109,17 +104,14 @@ export const Desktop = () => {
           }}
         />
 
-        {/* Desktop Grid System */}
         <div
           className={`relative z-10 w-full h-full flex pt-10 pl-10 gap-8 ${isGlitching ? "opacity-50 blur-[1px]" : ""}`}
         >
-          {/* Desktop Icon: K.A.T. CONNECTION.EXE */}
           <div
             className="flex flex-col items-center gap-2 w-32 cursor-pointer group"
             onClick={() => setIconActive(!iconActive)}
             onDoubleClick={() => setTerminalOpen(true)}
           >
-            {/* Icon Graphic */}
             <div
               className={`w-16 h-16 flex items-center justify-center transition-colors ${
                 iconActive
@@ -161,7 +153,6 @@ export const Desktop = () => {
               </svg>
             </div>
 
-            {/* Icon Label */}
             <div
               className={`text-center text-[14px] leading-tight uppercase ${
                 iconActive
@@ -181,7 +172,6 @@ export const Desktop = () => {
           </div>
         </div>
 
-        {/* Terminal Window Overlay */}
         {terminalOpen && !isLoggedIn && !isGlitching && (
           <LoginForm
             onSuccess={() => setIsLoggedIn(true)}
@@ -210,7 +200,6 @@ export const Desktop = () => {
         />
       )}
 
-      {/* Taskbar (Bottom Edge) */}
       <div
         className={`h-12 w-full bg-kat-bg border-t border-kat-accent flex items-center justify-between px-4 z-50 shrink-0 relative ${
           isGlitching
@@ -218,7 +207,6 @@ export const Desktop = () => {
             : ""
         }`}
       >
-        {/* Left side: Start Button */}
         <Button
           variant="bare"
           size="auto"
@@ -249,11 +237,9 @@ export const Desktop = () => {
           </span>
         </Button>
 
-        {/* Right side: System Tray & Clock */}
         <div
           className={`flex items-center gap-6 h-full px-2 ${isGlitching ? "blur-[1px] translate-x-2.5" : ""}`}
         >
-          {/* System Tray Icons */}
           <div className="flex items-center gap-3 opacity-80">
             <svg
               width="18"
@@ -286,7 +272,6 @@ export const Desktop = () => {
             </svg>
           </div>
 
-          {/* Digital Clock */}
           <div
             className={`font-bold text-[16px] tracking-wider ${
               isGlitching ? "text-kat-error" : "text-kat-accent"
