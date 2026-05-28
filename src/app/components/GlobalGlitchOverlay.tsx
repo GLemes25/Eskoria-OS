@@ -1,6 +1,6 @@
 const GlobalGlitchOverlay = () => {
   return (
-    <div className="absolute inset-0 z-[100] pointer-events-none overflow-hidden mix-blend-exclusion">
+    <div className="absolute inset-0 z-100 pointer-events-none overflow-hidden mix-blend-exclusion">
       <div className="absolute w-full h-0.5 bg-kat-text top-[15%] opacity-70 animate-[pulse_0.05s_infinite]" />
       <div className="absolute w-full h-2 bg-kat-glitch-mid top-[45%] opacity-30 animate-[ping_0.2s_infinite]" />
       <div className="absolute w-full h-px bg-kat-text top-[70%] opacity-90 animate-[pulse_0.1s_infinite]" />
