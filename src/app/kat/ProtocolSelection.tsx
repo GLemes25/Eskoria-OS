@@ -13,7 +13,7 @@ const ProtocolSelection = ({ onClose, onStart }: ProtocolSelectionProps) => {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-50">
-      <div className="pointer-events-auto flex flex-col font-mono w-187.5 h-137.5 bg-kat-bg/90 backdrop-blur-sm border border-kat-accent shadow-[0_4px_30px_var(--kat-accent-glow-sm)]">
+      <div className="pointer-events-auto flex flex-col font-mono w-187.5 max-w-[90vw] h-auto max-h-[85dvh] bg-kat-bg/90 backdrop-blur-sm border border-kat-accent shadow-[0_4px_30px_var(--kat-accent-glow-sm)]">
         {/* Window Header */}
         <div className="flex items-center justify-between px-4 py-2 shrink-0 border-b border-kat-accent bg-kat-accent/10">
           <span className="text-[12px] md:text-[14px] font-bold tracking-widest text-kat-accent">
@@ -39,7 +39,7 @@ const ProtocolSelection = ({ onClose, onStart }: ProtocolSelectionProps) => {
         </div>
 
         {/* Window Body */}
-        <div className="flex flex-col flex-1 items-center justify-center p-8 gap-8">
+        <div className="flex flex-col flex-1 items-center justify-center p-8 gap-8 overflow-y-auto">
           <div className="text-kat-accent text-[14px] uppercase w-full text-left opacity-90 animate-pulse">
             {">"} AUTHENTICATION SUCCESSFUL. WELCOME.
           </div>

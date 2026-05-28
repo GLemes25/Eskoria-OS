@@ -54,7 +54,7 @@ const SystemFailureWindow = () => {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-60">
-      <div className="relative pointer-events-auto flex flex-col font-mono w-187.5 h-137.5">
+      <div className="relative pointer-events-auto flex flex-col font-mono w-187.5 max-w-[90vw] h-137.5 max-h-[85dvh]">
         {/* Jagged Border Effect */}
         <div className="absolute inset-0 border-2 border-kat-error -translate-x-1.5 translate-y-0.75 opacity-80 animate-[ping_0.1s_infinite]" />
         <div className="absolute inset-0 border-2 border-kat-accent translate-x-1 -translate-y-0.5 opacity-80 animate-[ping_0.15s_infinite]" />

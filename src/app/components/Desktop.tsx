@@ -46,7 +46,7 @@ export const Desktop = () => {
 
   return (
     <div
-      className="relative overflow-hidden bg-kat-bg text-kat-accent flex flex-col w-480 h-270"
+      className="relative overflow-hidden bg-kat-bg text-kat-accent flex flex-col w-screen h-dvh"
       style={{ fontFamily: "'JetBrains Mono', monospace" }}
     >
       {isGlitching && !isRevealing && <GlobalGlitchOverlay />}
@@ -61,7 +61,7 @@ export const Desktop = () => {
             src={BG_URL}
             alt="Rock Band"
             fill
-            className={`object-cover object-center ${isGlitching ? "-translate-x-0.5 [filter:sepia(0.3)_hue-rotate(-30deg)]" : ""}`}
+            className={`object-cover object-center ${isGlitching ? "-translate-x-0.5 filter-[sepia(0.3)_hue-rotate(-30deg)]" : ""}`}
           />
         </div>
 
@@ -73,7 +73,7 @@ export const Desktop = () => {
                 src={BG_URL}
                 alt=""
                 fill
-                className="object-cover object-center mix-blend-screen translate-x-2 [filter:sepia()_saturate(3)_hue-rotate(-50deg)] opacity-70 animate-[pulse_0.1s_infinite]"
+                className="object-cover object-center mix-blend-screen translate-x-2 filter-[sepia()_saturate(3)_hue-rotate(-50deg)] opacity-70 animate-[pulse_0.1s_infinite]"
               />
             </div>
             <div className="absolute inset-0">
@@ -81,7 +81,7 @@ export const Desktop = () => {
                 src={BG_URL}
                 alt=""
                 fill
-                className="object-cover object-center mix-blend-screen -translate-x-2 [filter:sepia()_saturate(3)_hue-rotate(180deg)] opacity-70 animate-[pulse_0.15s_infinite]"
+                className="object-cover object-center mix-blend-screen -translate-x-2 filter-[sepia()_saturate(3)_hue-rotate(180deg)] opacity-70 animate-[pulse_0.15s_infinite]"
               />
             </div>
           </>
@@ -93,7 +93,7 @@ export const Desktop = () => {
             src={MESH_URL}
             alt="Corrupted Digital Mesh"
             fill
-            className={`object-cover object-center mix-blend-overlay opacity-60 ${isGlitching ? "translate-x-[5px]" : ""}`}
+            className={`object-cover object-center mix-blend-overlay opacity-60 ${isGlitching ? "translate-x-1.25" : ""}`}
           />
         </div>
 
@@ -214,7 +214,7 @@ export const Desktop = () => {
       <div
         className={`h-12 w-full bg-kat-bg border-t border-kat-accent flex items-center justify-between px-4 z-50 shrink-0 relative ${
           isGlitching
-            ? "animate-[pulse_0.1s_infinite] -translate-x-[5px] shadow-[0_-2px_0_var(--color-kat-error),0_2px_0_var(--color-kat-glitch-blue)]"
+            ? "animate-[pulse_0.1s_infinite] -translate-x-1.25 shadow-[0_-2px_0_var(--color-kat-error),0_2px_0_var(--color-kat-glitch-blue)]"
             : ""
         }`}
       >
@@ -251,7 +251,7 @@ export const Desktop = () => {
 
         {/* Right side: System Tray & Clock */}
         <div
-          className={`flex items-center gap-6 h-full px-2 ${isGlitching ? "blur-[1px] translate-x-[10px]" : ""}`}
+          className={`flex items-center gap-6 h-full px-2 ${isGlitching ? "blur-[1px] translate-x-2.5" : ""}`}
         >
           {/* System Tray Icons */}
           <div className="flex items-center gap-3 opacity-80">
