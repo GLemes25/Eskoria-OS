@@ -1,5 +1,5 @@
 <div align="center">
-  <img src="public/logo.png" alt="Logo eskoria" width="300" />
+  <img src="src/app/favicon.ico" alt="Logo eskoria" width="300" />
 
 # Eskoria OS (K.A.T. Terminal) - ARG Experience
 
