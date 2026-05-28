@@ -1,8 +1,12 @@
 "use client";
 
+import dayjs from "dayjs";
+import "dayjs/locale/pt-br";
+import { Power, Wifi } from "lucide-react";
 import Image from "next/image";
-import { useState } from "react";
-import { Button } from "@/components/ui/button";
+import { useEffect, useState } from "react";
+
+dayjs.locale("pt-br");
 
 type LockScreenProps = {
   onUnlock: () => void;
@@ -10,6 +14,14 @@ type LockScreenProps = {
 
 export const LockScreen = ({ onUnlock }: LockScreenProps) => {
   const [password, setPassword] = useState("");
+  const [currentTime, setCurrentTime] = useState(dayjs());
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentTime(dayjs());
+    }, 1000);
+    return () => clearInterval(timer);
+  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -20,101 +32,82 @@ export const LockScreen = ({ onUnlock }: LockScreenProps) => {
 
   return (
     <div
-      className="relative flex flex-col justify-between p-4 md:p-8 w-screen h-dvh bg-kat-bg overflow-hidden"
+      className="relative flex flex-col w-screen h-dvh bg-black overflow-hidden select-none"
       style={{ fontFamily: "'JetBrains Mono', monospace" }}
     >
-      <div className="flex justify-between items-start w-full shrink-0 z-10">
-        <div className="flex flex-col gap-1">
-          <div className="text-kat-accent text-[11px] tracking-[0.5px]">
-            K.A.T. OS v7.7.7
-          </div>
-          <div className="text-kat-accent text-[11px] tracking-[0.5px]">
-            BOOT SEQUENCE [ OK ]
-          </div>
+      <div className="absolute inset-0 z-0">
+        <Image
+          src="/images/bg-banda.jpg"
+          alt="Wallpaper"
+          fill
+          className="object-cover opacity-40 mix-blend-luminosity"
+        />
+        <div className="absolute inset-0 bg-black/60 backdrop-blur-md" />
+      </div>
+
+      <div className="relative z-10 flex flex-col justify-end p-8 md:p-12 h-1/3">
+        <div className="text-kat-text text-7xl md:text-9xl font-light tracking-tighter">
+          {currentTime.format("HH:mm")}
         </div>
-        <div className="flex flex-col gap-1 text-right">
-          <div className="text-kat-accent text-[11px] tracking-[0.5px]">
-            SESSION: LOCKED
-          </div>
-          <div className="text-kat-accent text-[11px] tracking-[0.5px]">
-            SECURITY LEVEL: MAXIMUM
-          </div>
+        <div className="text-kat-accent text-xl md:text-3xl font-medium tracking-wide mt-2 capitalize">
+          {currentTime.format("dddd, D [de] MMMM")}
         </div>
       </div>
 
-      <div className="flex flex-1 flex-col items-center justify-center gap-8 min-h-0 py-4 z-10">
-        <div className="relative w-24 h-24 md:w-32 md:h-32 opacity-50 pointer-events-none">
-          <Image
-            src="/logo.svg"
-            alt="Eskoria"
-            fill
-            className="object-contain"
-          />
-        </div>
-
+      <div className="relative z-10 flex flex-1 flex-col items-center justify-center -mt-20">
         <form
           onSubmit={handleLogin}
-          className="flex flex-col items-center gap-6 bg-black/90 backdrop-blur-sm border border-kat-accent p-8 md:p-12 shadow-[0_0_30px_rgba(74,246,38,0.15)] w-full max-w-md"
+          className="flex flex-col items-center gap-6 w-full max-w-sm"
         >
           <div className="flex flex-col items-center gap-4 w-full">
-            <div className="w-24 h-24 border border-kat-accent bg-kat-accent/5 relative overflow-hidden flex items-center justify-center">
-              <svg
-                className="w-10 h-10 text-kat-accent opacity-50"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="square"
-                  strokeLinejoin="miter"
-                  strokeWidth="1"
-                  d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
-                />
-              </svg>
+            <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-kat-accent bg-black shadow-[0_0_30px_rgba(74,246,38,0.2)]">
+              <Image
+                src="/user.jpg"
+                alt="Avatar"
+                fill
+                className="object-cover"
+              />
             </div>
-            <div className="text-kat-text text-xl md:text-2xl tracking-[4px] uppercase font-bold">
-              SYS.ADMIN
+            <div className="text-kat-text text-2xl tracking-[2px] uppercase font-bold">
+              Eskoria
             </div>
           </div>
 
-          <div className="flex flex-col gap-2 w-full mt-2">
-            <label className="text-kat-accent text-xs tracking-[2px] opacity-70">
-              {">"} ENCRYPTED_PASSWORD:
-            </label>
+          <div className="flex w-full max-w-70 relative mt-2">
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full bg-transparent border border-kat-accent/50 text-kat-accent px-4 py-3 outline-none focus:border-kat-accent focus:shadow-[0_0_15px_rgba(74,246,38,0.2)] transition-all tracking-[8px] text-center"
+              placeholder="SENHA"
+              autoComplete="off"
               autoFocus
+              className="w-full bg-black/80 backdrop-blur-sm border border-kat-accent/50 text-kat-accent px-4 py-2 outline-none focus:border-kat-accent focus:shadow-[0_0_15px_rgba(74,246,38,0.3)] transition-all tracking-[4px] placeholder:text-kat-accent/30 placeholder:tracking-[2px]"
             />
+            <button
+              type="submit"
+              className="absolute right-0 top-0 h-full px-4 border-l border-kat-accent/50 text-kat-accent hover:bg-kat-accent hover:text-black transition-colors"
+            >
+              ➔
+            </button>
           </div>
-
-          <Button
-            type="submit"
-            disabled={!password}
-            variant="outline"
-            className="w-full border border-kat-accent bg-transparent hover:bg-kat-accent hover:text-foreground text-kat-accent py-4 uppercase tracking-[4px] transition-colors disabled:opacity-20 disabled:hover:bg-transparent disabled:hover:text-kat-accent disabled:cursor-not-allowed mt-4"
-          >
-            [ ENTRAR ]
-          </Button>
         </form>
       </div>
 
-      <div className="flex flex-col items-center gap-1 w-full shrink-0 z-10">
-        <div className="text-kat-accent text-[9px] md:text-[10px] tracking-[1px] opacity-70 text-center">
-          SYSTEM INITIALIZED // WAITING FOR CREDENTIALS
+      <div className="relative z-10 flex justify-between items-end p-8 shrink-0">
+        <div className="flex flex-col gap-1">
+          <div className="text-kat-accent text-[10px] tracking-[1px] opacity-70">
+            K.A.T. OS v7.7.7
+          </div>
         </div>
-        <div className="text-kat-accent text-[9px] md:text-[10px] tracking-[1px] opacity-70 text-center">
-          © ESKORIA CORP. - ALL RIGHTS REVERSED
-        </div>
-      </div>
 
-      <div className="absolute bottom-4 left-4 text-kat-accent text-xl opacity-50 pointer-events-none">
-        +
-      </div>
-      <div className="absolute bottom-4 right-4 text-kat-accent text-xl opacity-50 pointer-events-none">
-        +
+        <div className="flex items-center gap-6 text-kat-accent">
+          <button className="hover:text-white hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.8)] transition-all">
+            <Wifi size={24} strokeWidth={1.5} />
+          </button>
+          <button className="hover:text-red-500 hover:drop-shadow-[0_0_8px_rgba(255,0,0,0.8)] transition-all">
+            <Power size={24} strokeWidth={1.5} />
+          </button>
+        </div>
       </div>
     </div>
   );
