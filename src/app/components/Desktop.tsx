@@ -119,38 +119,14 @@ export const Desktop = () => {
                   : "group-hover:bg-kat-text/10"
               }`}
             >
-              <svg
-                width="48"
-                height="48"
-                viewBox="0 0 400 400"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-                className="text-kat-text"
-              >
-                <g opacity="0.95">
-                  <path
-                    d="M200 20 L220 140 L340 140 L240 220 L280 340 L200 260 L120 340 L160 220 L60 140 L180 140 Z"
-                    fill="currentColor"
-                    stroke="currentColor"
-                    strokeWidth="6"
-                    strokeLinejoin="bevel"
-                  />
-                  <circle
-                    cx="200"
-                    cy="200"
-                    r="45"
-                    fill="var(--color-kat-bg)"
-                    stroke="currentColor"
-                    strokeWidth="4"
-                  />
-                  <rect x="180" y="190" width="40" height="20" fill="currentColor" />
-                  <path
-                    d="M100 300 L140 340 M300 300 L260 340 M100 100 L140 140 M300 100 L260 140"
-                    stroke="var(--color-kat-bg)"
-                    strokeWidth="8"
-                  />
-                </g>
-              </svg>
+              <div className="relative w-12 h-12">
+                <Image
+                  src="/logo.svg"
+                  alt="Eskoria"
+                  fill
+                  className="object-contain"
+                />
+              </div>
             </div>
 
             <div
@@ -212,22 +188,13 @@ export const Desktop = () => {
           size="auto"
           className="flex items-center gap-2 h-full px-4 hover:bg-kat-accent/20 transition-colors cursor-pointer group rounded-none"
         >
-          <svg
-            width="24"
-            height="24"
-            viewBox="0 0 400 400"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-            className="shrink-0 text-kat-text"
-          >
-            <path
-              d="M200 20 L220 140 L340 140 L240 220 L280 340 L200 260 L120 340 L160 220 L60 140 L180 140 Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="6"
-              strokeLinejoin="bevel"
-            />
-          </svg>
+          <Image
+            src="/logo.svg"
+            alt="Eskoria"
+            width={24}
+            height={24}
+            className="shrink-0 object-contain"
+          />
           <span
             className={`font-bold tracking-widest text-[16px] group-hover:text-kat-accent ${
               isGlitching ? "text-kat-error" : "text-kat-text"

@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 type LockScreenProps = {
   onUnlock: () => void;
 };
@@ -31,66 +33,14 @@ export const LockScreen = ({ onUnlock }: LockScreenProps) => {
       </div>
 
       <div className="flex flex-1 flex-col items-center justify-center gap-4 md:gap-8 min-h-0 py-4 z-10">
-        <svg
-          viewBox="0 0 400 400"
-          fill="none"
-          xmlns="http://www.w3.org/2000/svg"
-          className="text-kat-text w-auto h-[30dvh] min-h-30 max-h-[350px]"
-        >
-          <g opacity="0.9">
-            <path
-              d="M200 20 L220 140 L340 140 L240 220 L280 340 L200 260 L120 340 L160 220 L60 140 L180 140 Z"
-              fill="currentColor"
-              stroke="currentColor"
-              strokeWidth="2"
-            />
-            <circle
-              cx="200"
-              cy="200"
-              r="50"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1.5"
-              opacity="0.6"
-            />
-            <circle
-              cx="200"
-              cy="200"
-              r="30"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="1"
-              opacity="0.4"
-            />
-            <line
-              x1="200"
-              y1="20"
-              x2="200"
-              y2="80"
-              stroke="var(--color-kat-bg)"
-              strokeWidth="3"
-              opacity="0.3"
-            />
-            <line
-              x1="280"
-              y1="340"
-              x2="260"
-              y2="300"
-              stroke="var(--color-kat-bg)"
-              strokeWidth="2"
-              opacity="0.3"
-            />
-            <line
-              x1="120"
-              y1="340"
-              x2="140"
-              y2="300"
-              stroke="var(--color-kat-bg)"
-              strokeWidth="2"
-              opacity="0.3"
-            />
-          </g>
-        </svg>
+        <div className="relative w-full h-[30dvh] min-h-30 max-h-87.5">
+          <Image
+            src="/logo.svg"
+            alt="Eskoria"
+            fill
+            className="object-contain"
+          />
+        </div>
 
         <div className="flex flex-col items-center gap-4 shrink-0">
           <div className="text-kat-text text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-bold tracking-[6px] md:tracking-[16px] lg:tracking-[24px] ml-2 md:ml-4">
