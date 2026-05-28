@@ -39,7 +39,8 @@ Sempre que existir um arquivo de task correspondente ao trabalho realizado (ex: 
 ## 5. Fluxo de Execução
 
 1. Analise brevemente os arquivos modificados (adicione-os ao _stage_ com `git add` se o usuário solicitar).
-2. Verifique se há um arquivo de task em `tasks/` relacionado ao trabalho e adicione-o ao stage.
-3. Gere a mensagem de commit apropriada silenciosamente em inglês.
-4. Execute automaticamente o comando do git: `git commit -m "<mensagem_gerada>"`
-5. Exiba uma breve confirmação de sucesso mostrando a mensagem que foi commitada.
+2. Verifique se há um arquivo em`.claude/rules` adicionado ou editado relacionado ao trabalho e adicione-o ao stage.
+3. Verifique se há um arquivo de task em `tasks/` relacionado ao trabalho e adicione-o ao stage.
+4. Gere a mensagem de commit apropriada silenciosamente em inglês.
+5. Execute automaticamente o comando do git: `git commit -m "<mensagem_gerada>"`
+6. Exiba uma breve confirmação de sucesso mostrando a mensagem que foi commitada.
