@@ -66,7 +66,7 @@ export const LockScreen = ({ onUnlock }: LockScreenProps) => {
           className="flex flex-col items-center gap-6 w-full max-w-sm"
         >
           <div className="flex flex-col items-center gap-4 w-full">
-            <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-kat-accent bg-black shadow-[0_0_30px_rgba(74,246,38,0.2)]">
+            <div className="relative w-32 h-32 rounded-full overflow-hidden border-2 border-kat-accent bg-black shadow-[0_0_30px_var(--kat-dark-red-glow)]">
               <Image
                 src="/user.jpg"
                 alt="Avatar"
@@ -87,7 +87,7 @@ export const LockScreen = ({ onUnlock }: LockScreenProps) => {
               placeholder="SENHA"
               autoComplete="off"
               autoFocus
-              className="w-full bg-black/80 backdrop-blur-sm border border-kat-accent/50 text-kat-accent px-4 py-2 outline-none focus:border-kat-accent focus:shadow-[0_0_15px_rgba(74,246,38,0.3)] transition-all tracking-[4px] placeholder:text-kat-accent/30 placeholder:tracking-[2px]"
+              className="w-full bg-black/80 backdrop-blur-sm border border-kat-accent/50 text-kat-accent px-4 py-2 outline-none focus:border-kat-accent focus:shadow-[0_0_15px_var(--kat-dark-red-glow)] transition-all tracking-[4px] placeholder:text-kat-accent/30 placeholder:tracking-[2px]"
             />
             <button
               type="submit"

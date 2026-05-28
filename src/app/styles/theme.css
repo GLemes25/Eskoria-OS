@@ -15,6 +15,7 @@
   --kat-accent-glow: rgba(74, 246, 38, 0.5);
   --kat-error-glow-sm: rgba(255, 0, 0, 0.4);
   --kat-error-glow: rgba(255, 0, 0, 0.5);
+  --kat-dark-red-glow: rgba(139, 0, 0, 0.6);
   --kat-glitch-shadow: 2px 0 0 rgba(255, 0, 0, 1), -2px 0 0 rgba(0, 0, 255, 1);
   --background: #ffffff;
   --foreground: oklch(0.145 0 0);
