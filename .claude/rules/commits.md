@@ -1,5 +1,11 @@
 # Regras e Automação de Commits do Git
 
+## 0. Regra Fundamental — Aguardar Autorização
+
+**NUNCA** execute um commit sem que o usuário tenha pedido explicitamente. Concluir uma tarefa não autoriza o commit — são ações distintas. Só faça o commit quando o usuário disser algo equivalente a "commita", "faz o commit", "commit isso" ou similar.
+
+---
+
 Você é responsável por analisar as alterações em _stage_ (ou adicioná-las) e criar automaticamente os commits do Git para este repositório. Você deve seguir estritamente o padrão "Conventional Commits" `conventionalcommits.org` e as regras de formatação específicas descritas abaixo.
 
 ## 1. Tipos de Commit Permitidos
