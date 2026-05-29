@@ -1,18 +1,16 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import Image from "next/image";
-import { Button } from "@/components/ui/button";
+import { GlobalGlitchOverlay } from "@/app/components/GlobalGlitchOverlay";
+import CinematicReveal from "@/app/kat/CinematicReveal";
 import LoginForm from "@/app/kat/LoginForm";
 import ProtocolSelection from "@/app/kat/ProtocolSelection";
 import SystemFailureWindow from "@/app/kat/SystemFailureWindow";
-import CinematicReveal from "@/app/kat/CinematicReveal";
-import { GlobalGlitchOverlay } from "@/app/components/GlobalGlitchOverlay";
+import { Button } from "@/components/ui/button";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
-const BG_URL =
-  "https://images.unsplash.com/photo-1629278357549-b413116d211c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxkYXJrJTIwbW9vZHklMjBjaW5lbWF0aWMlMjByb2NrJTIwYmFuZHxlbnwxfHx8fDE3Nzk5NzI3NzN8MA&ixlib=rb-4.1.0&q=80&w=1080";
-const MESH_URL =
-  "https://images.unsplash.com/photo-1634368998864-8984df61cdda?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxjb3JydXB0ZWQlMjBkaWdpdGFsJTIwbWVzaCUyMGdsb3dpbmclMjBwaXhlbHMlMjBnbGl0Y2h8ZW58MXx8fHwxNzc5OTcyNzc2fDA&ixlib=rb-4.1.0&q=80&w=1080";
+const BG_URL = "/wallpaper.jpg";
+const MESH_URL = "/effectwallpaper.jpg";
 
 export const Desktop = () => {
   const [iconActive, setIconActive] = useState(false);
@@ -59,6 +57,7 @@ export const Desktop = () => {
             src={BG_URL}
             alt="Rock Band"
             fill
+            priority
             className={`object-cover object-center ${isGlitching ? "-translate-x-0.5 filter-[sepia(0.3)_hue-rotate(-30deg)]" : ""}`}
           />
         </div>
