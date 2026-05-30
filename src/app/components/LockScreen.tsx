@@ -84,7 +84,7 @@ export const LockScreen = ({ onUnlock }: LockScreenProps) => {
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              placeholder="SENHA"
+              placeholder="Password"
               autoComplete="off"
               autoFocus
               className="w-full bg-black/80 backdrop-blur-sm border border-kat-accent/50 text-kat-accent px-4 py-2 outline-none focus:border-kat-accent focus:shadow-[0_0_15px_var(--kat-dark-red-glow)] transition-all tracking-[4px] placeholder:text-kat-accent/30 placeholder:tracking-[2px]"

@@ -3,13 +3,14 @@
 :root {
   --font-size: 16px;
   --kat-bg: #000000;
-  --kat-accent: #4af626;
+  --kat-accent: #ffffff;
   --kat-text: #ffffff;
   --kat-error: #ff0000;
   --kat-glitch-blue: #0000ff;
   --kat-glitch-mid: #9ca3af;
   --kat-glitch-light: #e5e7eb;
   --kat-subtle: #444444;
+  --kat-taskbar-border: #1c1c1c;
   --kat-error-hover: #b91c1c;
   --kat-accent-glow-sm: rgba(74, 246, 38, 0.15);
   --kat-accent-glow: rgba(74, 246, 38, 0.5);
@@ -102,6 +103,7 @@
   --color-kat-glitch-mid: var(--kat-glitch-mid);
   --color-kat-glitch-light: var(--kat-glitch-light);
   --color-kat-subtle: var(--kat-subtle);
+  --color-kat-taskbar-border: var(--kat-taskbar-border);
   --color-kat-error-hover: var(--kat-error-hover);
   --color-background: var(--background);
   --color-foreground: var(--foreground);

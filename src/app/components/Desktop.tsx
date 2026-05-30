@@ -14,7 +14,7 @@ const MESH_URL = "/effectwallpaper.jpg";
 
 export const Desktop = () => {
   const [iconActive, setIconActive] = useState(false);
-  const [terminalOpen, setTerminalOpen] = useState(true);
+  const [terminalOpen, setTerminalOpen] = useState(false);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isGlitching, setIsGlitching] = useState(false);
   const [isRevealing, setIsRevealing] = useState(false);
@@ -44,13 +44,14 @@ export const Desktop = () => {
 
   return (
     <div
-      className="relative overflow-hidden bg-kat-bg text-kat-accent flex flex-col w-screen h-dvh"
+      className="relative overflow-hidden bg-black text-kat-accent flex flex-col w-screen h-dvh select-none"
       style={{ fontFamily: "'JetBrains Mono', monospace" }}
     >
       {isGlitching && !isRevealing && <GlobalGlitchOverlay />}
 
       <div
         className={`relative flex-1 w-full overflow-hidden ${isGlitching ? "animate-[pulse_0.2s_infinite]" : ""}`}
+        onClick={() => setIconActive(false)}
       >
         <div className="absolute inset-0">
           <Image
@@ -104,45 +105,53 @@ export const Desktop = () => {
         />
 
         <div
-          className={`relative z-10 w-full h-full flex pt-10 pl-10 gap-8 ${isGlitching ? "opacity-50 blur-[1px]" : ""}`}
+          className={`relative z-10 w-full h-full flex pt-8 pl-8 gap-8 ${isGlitching ? "opacity-50 blur-[1px]" : ""}`}
         >
           <div
-            className="flex flex-col items-center gap-2 w-32 cursor-pointer group"
-            onClick={() => setIconActive(!iconActive)}
-            onDoubleClick={() => setTerminalOpen(true)}
+            className="flex flex-col items-center gap-1 w-24 cursor-pointer"
+            onClick={(e) => {
+              e.stopPropagation();
+              setIconActive(true);
+            }}
+            onDoubleClick={(e) => {
+              e.stopPropagation();
+              setTerminalOpen(true);
+            }}
           >
             <div
-              className={`w-16 h-16 flex items-center justify-center transition-colors ${
-                iconActive
-                  ? "bg-kat-accent/20 border border-kat-accent"
-                  : "group-hover:bg-kat-text/10"
-              }`}
+              className={`relative w-14 h-14 flex items-center justify-center p-1 ${
+                iconActive ? "bg-kat-accent/30" : ""
+              } filter drop-shadow-md`}
             >
-              <div className="relative w-12 h-12">
-                <Image
-                  src="/logo.svg"
-                  alt="Eskoria"
-                  fill
-                  className="object-contain"
-                />
+              <Image
+                src="/logo.svg"
+                alt="Terminal Shortcut"
+                fill
+                className="object-contain"
+              />
+              <div className="absolute bottom-0 left-0 bg-white border border-black flex items-center justify-center w-4 h-4">
+                <svg
+                  width="10"
+                  height="10"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="black"
+                  strokeWidth="3"
+                  strokeLinecap="square"
+                >
+                  <path d="M5 19L19 5M19 5v10M19 5H9" />
+                </svg>
               </div>
             </div>
 
             <div
-              className={`text-center text-[14px] leading-tight uppercase ${
+              className={`text-center text-[12px] leading-tight px-1 ${
                 iconActive
-                  ? "bg-kat-accent text-kat-bg font-bold"
-                  : "text-kat-accent drop-shadow-[0_0_2px_var(--color-kat-bg)]"
+                  ? "bg-kat-accent text-black"
+                  : "text-white drop-shadow-[0_1px_1px_rgba(0,0,0,1)]"
               }`}
-              style={{
-                textShadow: iconActive
-                  ? "none"
-                  : `1px 1px 0 var(--color-kat-bg), -1px -1px 0 var(--color-kat-bg), 1px -1px 0 var(--color-kat-bg), -1px 1px 0 var(--color-kat-bg)`,
-              }}
             >
               K.A.T.
-              <br />
-              CONNECTION.EXE
             </div>
           </div>
         </div>
@@ -174,76 +183,148 @@ export const Desktop = () => {
           }}
         />
       )}
-
       <div
-        className={`h-12 w-full bg-kat-bg border-t border-kat-accent flex items-center justify-between px-4 z-50 shrink-0 relative ${
+        className={`h-10 w-full shrink-0 relative z-50 flex items-center bg-kat-bg/80 backdrop-blur-md border-t border-kat-taskbar-border ${
           isGlitching
-            ? "animate-[pulse_0.1s_infinite] -translate-x-1.25 shadow-[0_-2px_0_var(--color-kat-error),0_2px_0_var(--color-kat-glitch-blue)]"
+            ? "animate-[pulse_0.1s_infinite] -translate-x-1.5 shadow-[0_-2px_15px_var(--color-kat-error)]"
             : ""
         }`}
       >
         <Button
           variant="bare"
           size="auto"
-          className="flex items-center gap-2 h-full px-4 hover:bg-kat-accent/20 transition-colors cursor-pointer group rounded-none"
+          className="flex items-center gap-3 h-full px-6 hover:bg-kat-accent/10 transition-colors cursor-pointer border-r border-kat-taskbar-border rounded-none shrink-0"
         >
           <Image
             src="/logo.svg"
             alt="Eskoria"
-            width={24}
-            height={24}
-            className="shrink-0 object-contain"
+            width={28}
+            height={28}
+            className="object-contain shrink-0"
           />
           <span
-            className={`font-bold tracking-widest text-[16px] group-hover:text-kat-accent ${
-              isGlitching ? "text-kat-error" : "text-kat-text"
+            className={`font-bold tracking-widest text-[16px] ${
+              isGlitching
+                ? "text-kat-error animate-[pulse_0.1s_infinite] -translate-x-1.5"
+                : "text-kat-text"
             }`}
           >
-            {isGlitching ? "ERR_R" : "ESKORIA"}
+            {isGlitching ? "ERR_R" : "START"}
           </span>
         </Button>
 
         <div
-          className={`flex items-center gap-6 h-full px-2 ${isGlitching ? "blur-[1px] translate-x-2.5" : ""}`}
+          className={`flex items-center gap-6.75 h-full px-6 flex-1 ${
+            isGlitching ? "opacity-30 blur-[1px]" : ""
+          }`}
         >
-          <div className="flex items-center gap-3 opacity-80">
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={isGlitching ? "text-kat-error" : "text-kat-accent"}
-            >
-              <path d="M5 12.55a11 11 0 0 1 14.08 0" />
-              <path d="M1.42 9a16 16 0 0 1 21.16 0" />
-              <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
-              <line x1="12" y1="20" x2="12.01" y2="20" />
-            </svg>
-            <svg
-              width="18"
-              height="18"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              className={isGlitching ? "text-kat-error" : "text-kat-accent"}
-            >
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
-            </svg>
-          </div>
+          <Image
+            src="https://www.figma.com/api/mcp/asset/8bde5407-54a9-4286-b74c-d4b5513716fc"
+            alt="Browser"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/d67c307a-17e8-4a8a-b3f0-f52ea4d77c80"
+            alt="Files"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/06d3edc9-1ade-44d8-b954-5d64333547a7"
+            alt="Media"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/c2893006-01fc-4dc1-93ab-629acac14b24"
+            alt="App"
+            width={28}
+            height={28}
+            className="object-contain"
+          />
+        </div>
 
-          <div
-            className={`font-bold text-[16px] tracking-wider ${
-              isGlitching ? "text-kat-error" : "text-kat-accent"
+        <div
+          className={`flex items-center gap-5.75 h-full px-5 border-l border-kat-taskbar-border shrink-0 ${
+            isGlitching ? "blur-[1px] translate-x-3" : ""
+          }`}
+        >
+          <span
+            className={`text-lg tracking-wider ${
+              isGlitching ? "text-kat-error" : "text-kat-text"
             }`}
           >
-            {isGlitching ? "XX:XX" : time || "23:59"}
+            EN
+          </span>
+          <Image
+            src="https://www.figma.com/api/mcp/asset/68d0c76c-fefe-4972-bee4-36e913e1fefb"
+            alt=""
+            width={14}
+            height={9}
+            unoptimized
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/001ca0b0-7724-4281-bb01-9db4053dcb65"
+            alt="WiFi"
+            width={18}
+            height={18}
+            unoptimized
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/1106bada-030e-4945-bfa9-773eb125a754"
+            alt=""
+            width={14}
+            height={13}
+            unoptimized
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/71e24a7e-1a63-4dce-a844-832108f23fdc"
+            alt=""
+            width={10}
+            height={14}
+            unoptimized
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/aa34de6c-ac50-4d4b-9e05-1ff3690e1a60"
+            alt=""
+            width={11}
+            height={15}
+            unoptimized
+            className="object-contain"
+          />
+          <Image
+            src="https://www.figma.com/api/mcp/asset/d723f452-003c-4d2e-af1e-7d4f26f9ca7e"
+            alt=""
+            width={13}
+            height={11}
+            unoptimized
+            className="object-contain"
+          />
+          <div className="text-center shrink-0">
+            <p
+              className={`font-bold tracking-wider leading-tight ${
+                isGlitching
+                  ? "text-kat-error animate-[pulse_0.1s_infinite] -translate-x-1.5"
+                  : "text-kat-text"
+              }`}
+            >
+              {isGlitching ? "XX:XX" : time || "23:59"}
+            </p>
+            <p
+              className={`text-sm leading-tight opacity-70 ${
+                isGlitching ? "text-kat-error" : "text-kat-text"
+              }`}
+            >
+              {new Date().toLocaleDateString("pt-BR")}
+            </p>
           </div>
         </div>
       </div>
