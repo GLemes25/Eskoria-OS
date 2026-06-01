@@ -1,0 +1,116 @@
+[
+  {
+    "id": "my-computer",
+    "name": "My Computer",
+    "icon": "/shortcuts/my-computer.svg",
+    "type": "system"
+  },
+  {
+    "id": "trash",
+    "name": "trash",
+    "icon": "/shortcuts/lixeira.svg",
+    "type": "system"
+  },
+  {
+    "id": "control-panel",
+    "name": "Control Panel",
+    "icon": "/shortcuts/control-panel.svg",
+    "type": "system"
+  },
+  {
+    "id": "system32",
+    "name": "System32",
+    "icon": "/shortcuts/system32.svg",
+    "type": "system"
+  },
+  {
+    "id": "internet-explorer",
+    "name": "Internet Explorer.exe",
+    "icon": "/shortcuts/internet-explorer.svg",
+    "type": "app"
+  },
+  {
+    "id": "msn",
+    "name": "MSN Messenger.exe",
+    "icon": "/shortcuts/msn.svg",
+    "type": "app"
+  },
+  {
+    "id": "ares",
+    "name": "Ares.exe",
+    "icon": "/shortcuts/ares.svg",
+    "type": "app"
+  },
+  {
+    "id": "utorrent",
+    "name": "uTorrent.exe",
+    "icon": "/shortcuts/utorrent.svg",
+    "type": "app"
+  },
+  {
+    "id": "winrar",
+    "name": "WinRAR.exe",
+    "icon": "/shortcuts/winrar.svg",
+    "type": "app"
+  },
+  {
+    "id": "paint",
+    "name": "Paint.exe",
+    "icon": "/shortcuts/paint.svg",
+    "type": "app"
+  },
+  {
+    "id": "notepad",
+    "name": "Notepad  .exe",
+    "icon": "/shortcuts/notepad.svg",
+    "type": "app"
+  },
+  {
+    "id": "doom",
+    "name": "Doom.exe",
+    "icon": "/shortcuts/doom.svg",
+    "type": "game"
+  },
+  {
+    "id": "cs-16",
+    "name": "Counter-Strike 1.6.exe",
+    "icon": "/shortcuts/cs-16.svg",
+    "type": "game"
+  },
+  {
+    "id": "gta-sa",
+    "name": "GTA San Andreas.exe",
+    "icon": "/shortcuts/gta-sa.svg",
+    "type": "game"
+  },
+  {
+    "id": "half-life",
+    "name": "Half-Life.exe",
+    "icon": "/shortcuts/half-life.svg",
+    "type": "game"
+  },
+  {
+    "id": "pinball",
+    "name": "Pinball  .exe",
+    "icon": "/shortcuts/pinball.svg",
+    "type": "game"
+  },
+  {
+    "id": "speedy-eggbert",
+    "name": "Speedy Eggbert.exe",
+    "icon": "/shortcuts/speedy-eggbert.svg",
+    "type": "game"
+  },
+  {
+    "id": "blind-korn",
+    "name": "blind_Korn.mp3",
+    "icon": "/shortcuts/blind-korn.svg",
+    "type": "file"
+  },
+  {
+    "id": "eskoria-so",
+    "name": "eskoria  .exe",
+    "icon": "/shortcuts/eskoria.svg",
+    "type": "default"
+  }
+]
