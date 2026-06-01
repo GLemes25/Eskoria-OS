@@ -38,9 +38,11 @@ Use estes commits passados do repositório como seu padrão de tom e estrutura:
 - `refactor: update rules to claude code`
 - `style: remove gradient color to match minimalist design`
 
-## 4. Arquivo de Task
+## 4. Arquivo de Task (OBRIGATÓRIO — nunca omitir)
 
-Sempre que existir um arquivo de task correspondente ao trabalho realizado (ex: `tasks/03.md`), ele **deve** ser incluído no mesmo commit. Adicione-o ao stage junto com os demais arquivos antes de commitar.
+**ANTES de qualquer commit**, execute `git status` e verifique se há arquivos não rastreados ou modificados em `tasks/`. Se houver, adicione-os ao stage incondicionalmente — mesmo que o usuário não os mencione explicitamente.
+
+Regra: todo arquivo `tasks/*.md` presente no working tree no momento do commit **deve** ir no mesmo commit que o trabalho relacionado. Nunca deixe um arquivo de task para trás.
 
 ## 5. Fluxo de Execução
 
