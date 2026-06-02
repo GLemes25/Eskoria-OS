@@ -1,17 +1,12 @@
 "use client";
 
-import { BootTyper } from "@/components/boot/BootTyper";
 import { BootProgressBar } from "@/components/boot/BootProgressBar";
+import { BootTyper } from "@/components/boot/BootTyper";
 import { DelayedRender } from "@/components/boot/DelayedRender";
 
 const BootFooter = () => (
   <div className="flex flex-col gap-1 mt-4">
-    <BootProgressBar
-      label="> ATTEMPTING SYSTEM RECOVERY..."
-      targetProgress={42}
-      speed={15}
-      startDelay={0}
-    />
+    <BootProgressBar label="> ATTEMPTING SYSTEM RECOVERY..." startDelay={0} />
     <BootTyper
       text="> RELOADING ESKORIA CORE PROTOCOL..."
       speed={15}
@@ -19,7 +14,8 @@ const BootFooter = () => (
     />
     <DelayedRender delay={2500}>
       <p className="text-center animate-[pulse_1.5s_ease-in-out_infinite] mt-2 font-bold tracking-widest">
-        &gt;&gt;&gt; ESKORIA IS NOT JUST A BAND. IT&apos;S A RESISTANCE &lt;&lt;&lt;
+        &gt;&gt;&gt; ESKORIA IS NOT JUST A BAND. IT&apos;S A RESISTANCE
+        &lt;&lt;&lt;
       </p>
     </DelayedRender>
     <DelayedRender delay={3500}>

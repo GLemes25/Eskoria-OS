@@ -13,7 +13,8 @@
       "Bash(git -C /home/gabriel/Documents/projects/eskoria diff --stat)",
       "Bash(pnpm tsc *)",
       "Bash(git -C /home/gabriel/Documents/projects/eskoria diff --staged)",
-      "Bash(git -C /home/gabriel/Documents/projects/eskoria add src/app/components/CustomBoot.tsx src/components/boot/ .claude/settings.json)"
+      "Bash(git -C /home/gabriel/Documents/projects/eskoria add src/app/components/CustomBoot.tsx src/components/boot/ .claude/settings.json)",
+      "Bash(git -C /home/gabriel/Documents/projects/eskoria commit -m ' *)"
     ]
   }
 }
