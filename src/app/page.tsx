@@ -10,7 +10,6 @@ import { useEffect, useState } from "react";
 const phaseDurations: Record<number, number> = {
   0: 1500,
   1: 1000,
-  2: 3000,
   3: 3000,
 };
 
@@ -19,7 +18,7 @@ const Home = () => {
   const [isLocked, setIsLocked] = useState(true);
 
   useEffect(() => {
-    if (bootPhase >= 4) return;
+    if (bootPhase === 2 || bootPhase >= 4) return;
 
     const timer = setTimeout(() => {
       setBootPhase((prev) => prev + 1);
@@ -51,7 +50,7 @@ const Home = () => {
           <TypewriterText text="Loading base modules..." speed={10} startDelay={400} />
         </div>
       )}
-      {bootPhase === 2 && <CustomBoot />}
+      {bootPhase === 2 && <CustomBoot onComplete={() => setBootPhase(3)} />}
     </div>
   );
 };
