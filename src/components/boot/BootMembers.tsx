@@ -8,7 +8,7 @@ import { BAND_MEMBERS_DATA } from "@/components/boot/bootData";
 const BootMembers = () => (
   <div className="flex flex-col gap-1.5 mt-2">
     <BootTyper text="> INITIALIZING BAND MEMBERS..." speed={15} startDelay={0} />
-    <div className="grid grid-cols-4 gap-3 mt-1">
+    <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 mt-1">
       {BAND_MEMBERS_DATA.map((member, cardIdx) => (
         <DelayedRender key={member.name} delay={600 + cardIdx * 1500}>
           <div className="border border-[#00FF41] p-2 flex flex-col gap-1.5 bg-[#00FF41]/2">

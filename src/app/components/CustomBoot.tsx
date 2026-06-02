@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { BootHeader } from "@/components/boot/BootHeader";
 import { BootMembers } from "@/components/boot/BootMembers";
 import { BootVirusScan } from "@/components/boot/BootVirusScan";
@@ -12,6 +12,7 @@ type CustomBootProps = {
 
 const CustomBoot = ({ onComplete }: CustomBootProps) => {
   const [bootStep, setBootStep] = useState(1);
+  const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const t2 = setTimeout(() => setBootStep(2), 3500);
@@ -27,6 +28,13 @@ const CustomBoot = ({ onComplete }: CustomBootProps) => {
   }, []);
 
   useEffect(() => {
+    const interval = setInterval(() => {
+      bottomRef.current?.scrollIntoView({ behavior: "auto" });
+    }, 50);
+    return () => clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
     if (bootStep < 5) return;
     const handleKeyDown = () => onComplete();
     window.addEventListener("keydown", handleKeyDown);
@@ -34,11 +42,12 @@ const CustomBoot = ({ onComplete }: CustomBootProps) => {
   }, [bootStep, onComplete]);
 
   return (
-    <div className="w-full h-full flex flex-col p-8 bg-black font-mono overflow-hidden text-[#00FF41] text-[11px] leading-[1.2] tracking-tight gap-4 select-none">
+    <div className="w-full h-full flex flex-col p-4 sm:p-8 bg-black font-mono overflow-x-hidden overflow-y-auto text-[#00FF41] text-[9px] sm:text-[11px] leading-[1.2] tracking-tight gap-4 select-none touch-none pointer-events-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
       <BootHeader bootStep={bootStep} />
       {bootStep >= 3 && <BootMembers />}
       {bootStep >= 4 && <BootVirusScan />}
       {bootStep >= 5 && <BootFooter />}
+      <div ref={bottomRef} className="h-1 shrink-0" />
     </div>
   );
 };

@@ -5,7 +5,7 @@ import { BootTyper } from "@/components/boot/BootTyper";
 import { DelayedRender } from "@/components/boot/DelayedRender";
 
 const BootVirusScan = () => (
-  <div className="grid grid-cols-2 gap-6 text-red-500 mt-2">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-red-500 mt-2">
     <div className="flex flex-col gap-0.5">
       <BootTyper text="> SYSTEM SCAN..." speed={15} startDelay={0} />
       <BootTyper

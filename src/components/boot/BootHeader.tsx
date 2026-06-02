@@ -10,7 +10,7 @@ type BootHeaderProps = {
 };
 
 const BootHeader = ({ bootStep }: BootHeaderProps) => (
-  <div className="grid grid-cols-2 gap-6">
+  <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
     <div className="flex flex-col gap-0.5">
       <span className="block">ESKORIA OPERATING SYSTEM v1.9.9.6</span>
       <span className="block text-opacity-80">
@@ -71,7 +71,7 @@ const BootHeader = ({ bootStep }: BootHeaderProps) => (
     {bootStep >= 2 && (
       <div className="flex flex-col gap-2 justify-end">
         <DelayedRender delay={200}>
-          <div className="relative w-full h-32 shrink-0 mb-2">
+          <div className="relative w-full h-20 lg:h-32 shrink-0 mb-2">
             <Image
               src="/boot/eskoria.svg"
               alt="ESKORIA"
@@ -83,7 +83,7 @@ const BootHeader = ({ bootStep }: BootHeaderProps) => (
         </DelayedRender>
         <DelayedRender delay={1000}>
           <div className="flex gap-4 mt-auto items-end">
-            <div className="border border-[#00FF41] p-3 flex flex-col gap-1 w-60">
+            <div className="border border-[#00FF41] p-3 flex flex-col gap-1 w-full lg:w-60">
               <BootTyper
                 text="> WELCOME TO THE SYSTEM."
                 speed={20}
@@ -96,7 +96,7 @@ const BootHeader = ({ bootStep }: BootHeaderProps) => (
                 startDelay={1000}
               />
             </div>
-            <div className="relative w-24 h-24 shrink-0 -mb-1">
+            <div className="relative w-16 h-16 lg:w-24 lg:h-24 shrink-0 -mb-1">
               <Image
                 src="/boot/greenskull.svg"
                 alt="GREENSKULL"

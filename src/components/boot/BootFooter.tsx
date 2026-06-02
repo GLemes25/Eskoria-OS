@@ -19,7 +19,7 @@ const BootFooter = () => (
       </p>
     </DelayedRender>
     <DelayedRender delay={3500}>
-      <div className="flex justify-between mt-2 border-b border-red-500 pb-2">
+      <div className="flex flex-col sm:flex-row justify-between gap-2 mt-2 border-b border-red-500 pb-2">
         <span className="text-red-500 font-bold drop-shadow-[0_0_3px_rgba(239,68,68,0.8)]">
           &gt; SYSTEM STATUS: CRITICAL
         </span>
