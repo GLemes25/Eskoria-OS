@@ -4,6 +4,7 @@ import { BlackScreen } from "@/app/components/BlackScreen";
 import { CustomBoot } from "@/app/components/CustomBoot";
 import { Desktop } from "@/app/components/Desktop";
 import { LockScreen } from "@/app/components/LockScreen";
+import { TypewriterText } from "@/app/components/TypewriterText";
 import { useEffect, useState } from "react";
 
 const phaseDurations: Record<number, number> = {
@@ -45,13 +46,9 @@ const Home = () => {
       style={{ fontFamily: "'JetBrains Mono', monospace" }}
     >
       {bootPhase === 0 && (
-        <div className="p-6">
-          <p className="text-white text-sm leading-tight opacity-80">
-            Inicializando K.A.T. Kernel...
-          </p>
-          <p className="text-white text-sm leading-tight opacity-80">
-            Carregando módulos base...
-          </p>
+        <div className="p-6 flex flex-col gap-1">
+          <TypewriterText text="Initializing K.A.T. Kernel..." speed={10} startDelay={0} />
+          <TypewriterText text="Loading base modules..." speed={10} startDelay={400} />
         </div>
       )}
       {bootPhase === 2 && <CustomBoot />}
