@@ -1,0 +1,19 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(/home/gabriel/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome --headless=new --no-sandbox --screenshot=/tmp/boot_step1.png --window-size=1280,800 http://localhost:3131)",
+      "Bash(echo \"exit: $?\")",
+      "Read(//tmp/**)",
+      "Bash(npm list *)",
+      "Read(//usr/lib/node_modules/**)",
+      "Bash(/home/gabriel/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome --headless=new --no-sandbox --remote-debugging-port=9222 http://localhost:3131)",
+      "Bash(grep -E \"^ws$|playwright|puppeteer\")",
+      "Bash(node -e ' *)",
+      "Bash(/home/gabriel/.cache/ms-playwright/chromium-1223/chrome-linux64/chrome --headless=new --no-sandbox --virtual-time-budget=12000 --screenshot=/tmp/boot_vt.png --window-size=1280,800 http://localhost:3131)",
+      "Bash(git -C /home/gabriel/Documents/projects/eskoria diff --stat)",
+      "Bash(pnpm tsc *)",
+      "Bash(git -C /home/gabriel/Documents/projects/eskoria diff --staged)",
+      "Bash(git -C /home/gabriel/Documents/projects/eskoria add src/app/components/CustomBoot.tsx src/components/boot/ .claude/settings.json)"
+    ]
+  }
+}
