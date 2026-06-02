@@ -8,9 +8,9 @@ import { TypewriterText } from "@/app/components/TypewriterText";
 import { useEffect, useState } from "react";
 
 const phaseDurations: Record<number, number> = {
-  0: 1500,
-  1: 1000,
-  3: 3000,
+  0: 750,
+  1: 500,
+  3: 1000,
 };
 
 const Home = () => {

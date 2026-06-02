@@ -15,10 +15,10 @@ const CustomBoot = ({ onComplete }: CustomBootProps) => {
   const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const t2 = setTimeout(() => setBootStep(2), 3500);
-    const t3 = setTimeout(() => setBootStep(3), 5500);
-    const t4 = setTimeout(() => setBootStep(4), 13500);
-    const t5 = setTimeout(() => setBootStep(5), 20000);
+    const t2 = setTimeout(() => setBootStep(2), 2000);
+    const t3 = setTimeout(() => setBootStep(3), 3500);
+    const t4 = setTimeout(() => setBootStep(4), 7500);
+    const t5 = setTimeout(() => setBootStep(5), 11000);
     return () => {
       clearTimeout(t2);
       clearTimeout(t3);
@@ -36,9 +36,8 @@ const CustomBoot = ({ onComplete }: CustomBootProps) => {
 
   useEffect(() => {
     if (bootStep < 5) return;
-    const handleKeyDown = () => onComplete();
-    window.addEventListener("keydown", handleKeyDown);
-    return () => window.removeEventListener("keydown", handleKeyDown);
+    const timer = setTimeout(() => onComplete(), 2000);
+    return () => clearTimeout(timer);
   }, [bootStep, onComplete]);
 
   return (
