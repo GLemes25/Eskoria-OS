@@ -31,8 +31,8 @@ const BootProgressBar = ({
       if (progressRef.current < 100) {
         const isStuttering = Math.random() > 0.85;
         const nextDelay = isStuttering
-          ? Math.floor(Math.random() * 150) + 80
-          : Math.floor(Math.random() * 25) + 10;
+          ? Math.floor(Math.random() * 75) + 40
+          : Math.floor(Math.random() * 12) + 5;
 
         recursiveTimeoutId = setTimeout(processTick, nextDelay);
       }
@@ -57,7 +57,7 @@ const BootProgressBar = ({
   return (
     <div className="flex flex-col gap-0.5 mt-1">
       {labelDisplayed ? (
-        <BootTyper text={label} speed={15} />
+        <BootTyper text={label} speed={5} />
       ) : (
         <span className="block min-h-3.5"></span>
       )}

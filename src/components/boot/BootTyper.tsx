@@ -8,7 +8,7 @@ type BootTyperProps = {
   startDelay?: number;
 };
 
-const BootTyper = ({ text, speed = 20, startDelay = 0 }: BootTyperProps) => {
+const BootTyper = ({ text, speed = 8, startDelay = 0 }: BootTyperProps) => {
   const [displayed, setDisplayed] = useState("");
   const [started, setStarted] = useState(false);
 

@@ -9,22 +9,19 @@ const BootFooter = () => (
     <BootProgressBar label="> ATTEMPTING SYSTEM RECOVERY..." startDelay={0} />
     <BootTyper
       text="> RELOADING ESKORIA CORE PROTOCOL..."
-      speed={15}
-      startDelay={800}
+      speed={5}
+      startDelay={400}
     />
-    <DelayedRender delay={1200}>
+    <DelayedRender delay={700}>
       <p className="text-center animate-[pulse_1.5s_ease-in-out_infinite] mt-2 font-bold tracking-widest">
         &gt;&gt;&gt; ESKORIA IS NOT JUST A BAND. IT&apos;S A RESISTANCE
         &lt;&lt;&lt;
       </p>
     </DelayedRender>
-    <DelayedRender delay={1800}>
+    <DelayedRender delay={1200}>
       <div className="flex flex-col sm:flex-row justify-between gap-2 mt-2 border-b border-red-500 pb-2">
         <span className="text-red-500 font-bold drop-shadow-[0_0_3px_rgba(239,68,68,0.8)]">
           &gt; SYSTEM STATUS: CRITICAL
-        </span>
-        <span className="animate-[pulse_1s_ease-in-out_infinite]">
-          &gt; PRESS ANY KEY TO CONTINUE...
         </span>
       </div>
     </DelayedRender>

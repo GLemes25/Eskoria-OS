@@ -19,47 +19,47 @@ const BootHeader = ({ bootStep }: BootHeaderProps) => (
       <span className="block min-h-3.5"></span>
       <BootTyper
         text="BOOT SEQUENCE INITIATED..."
-        speed={15}
+        speed={5}
         startDelay={100}
       />
       <BootTyper
         text="[ OK ] CPU ARCHITECTURE............. x86_64"
-        speed={8}
+        speed={3}
         startDelay={400}
       />
       <BootTyper
         text="[ OK ] SYSTEM MEMORY CHECK........... 64MB OK"
-        speed={8}
+        speed={3}
         startDelay={700}
       />
       <BootTyper
         text="[ OK ] HARD DRIVE DETECTED........... ESKORIA_CORE"
-        speed={8}
+        speed={3}
         startDelay={1000}
       />
       <BootTyper
         text="[ OK ] KERNEL SECURITY............... OVERRIDDEN"
-        speed={8}
+        speed={3}
         startDelay={1300}
       />
       <BootTyper
         text="[ OK ] AUDIO INTERFACE............... ONLINE"
-        speed={8}
+        speed={3}
         startDelay={1600}
       />
       <BootTyper
         text="[ OK ] VIDEO SYSTEM.................. 640x480 CRT"
-        speed={8}
+        speed={3}
         startDelay={1900}
       />
       <BootTyper
         text="[ OK ] POWER SUPPLY.................. STABLE"
-        speed={8}
+        speed={3}
         startDelay={2200}
       />
       <BootTyper
         text="[ OK ] NETWORK PROTOCOL.............. UNDERGROUND"
-        speed={8}
+        speed={3}
         startDelay={2500}
       />
       <BootProgressBar
@@ -86,13 +86,13 @@ const BootHeader = ({ bootStep }: BootHeaderProps) => (
             <div className="border border-[#00FF41] p-3 flex flex-col gap-1 w-full lg:w-60">
               <BootTyper
                 text="> WELCOME TO THE SYSTEM."
-                speed={20}
+                speed={8}
                 startDelay={0}
               />
-              <BootTyper text="> TRUST NO ONE." speed={20} startDelay={500} />
+              <BootTyper text="> TRUST NO ONE." speed={8} startDelay={500} />
               <BootTyper
                 text="> ROCK IS OUR PROTOCOL."
-                speed={20}
+                speed={8}
                 startDelay={1000}
               />
             </div>
