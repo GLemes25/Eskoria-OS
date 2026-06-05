@@ -3,6 +3,7 @@
 import { GlobalGlitchOverlay } from "@/app/components/GlobalGlitchOverlay";
 import { Shortcut } from "@/app/components/Shortcut";
 import { Taskbar } from "@/app/components/Taskbar";
+import { DontOpenOverlay } from "@/components/DontOpenOverlay";
 import CinematicReveal from "@/app/kat/CinematicReveal";
 import LoginForm from "@/app/kat/LoginForm";
 import ProtocolSelection from "@/app/kat/ProtocolSelection";
@@ -20,6 +21,7 @@ export const Desktop = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isGlitching, setIsGlitching] = useState(false);
   const [isRevealing, setIsRevealing] = useState(false);
+  const [showDontOpen, setShowDontOpen] = useState(false);
   const [time, setTime] = useState("");
 
   useEffect(() => {
@@ -30,6 +32,7 @@ export const Desktop = () => {
       return () => clearTimeout(timer);
     }
   }, [isGlitching]);
+
 
   useEffect(() => {
     const updateClock = () => {
@@ -122,7 +125,7 @@ export const Desktop = () => {
                   if (shortcut.id === "eskoria-so") {
                     setTerminalOpen(true);
                   } else {
-                    window.alert("Executando: " + shortcut.name);
+                    setShowDontOpen(true);
                   }
                 }}
               />
@@ -157,6 +160,11 @@ export const Desktop = () => {
           }}
         />
       )}
+
+      <DontOpenOverlay
+        isVisible={showDontOpen}
+        onDismiss={() => setShowDontOpen(false)}
+      />
 
       <Taskbar time={time} isGlitching={isGlitching} />
     </div>

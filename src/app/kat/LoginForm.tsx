@@ -1,10 +1,10 @@
 "use client";
 
-import { useForm, useWatch } from "react-hook-form";
-import { z } from "zod";
-import { standardSchemaResolver } from "@hookform/resolvers/standard-schema";
 import { useAsciiMask } from "@/app/hooks/useAsciiMask";
 import { Button } from "@/components/ui/button";
+import { standardSchemaResolver } from "@hookform/resolvers/standard-schema";
+import { useForm, useWatch } from "react-hook-form";
+import { z } from "zod";
 
 type LoginFormProps = {
   onSuccess?: () => void;
@@ -15,8 +15,9 @@ const loginSchema = z.object({
   username: z
     .string()
     .refine(
-      (val) => val.replace(/[\[\]\s]/g, "").toUpperCase() === "ESKORIA.ASCENSÃO",
-      { message: "ERRO CRÍTICO: CREDENCIAIS NÃO RECONHECIDAS NO SISTEMA." }
+      (val) =>
+        val.replace(/[\[\]\s]/g, "").toUpperCase() === "ESKORIA.ASCENSÃO",
+      { message: "ERRO CRÍTICO: CREDENCIAIS NÃO RECONHECIDAS NO SISTEMA." },
     ),
   password: z.string().min(1),
 });
@@ -76,7 +77,7 @@ const LoginForm = ({ onSuccess, onClose }: LoginFormProps) => {
         >
           <div className="flex flex-col gap-2">
             <label htmlFor="username" className="text-kat-accent text-[16px]">
-              {">"} USUÁRIO:
+              {">"} USER:
             </label>
             <input
               id="username"
@@ -89,11 +90,13 @@ const LoginForm = ({ onSuccess, onClose }: LoginFormProps) => {
 
           <div className="flex flex-col gap-2">
             <label htmlFor="password" className="text-kat-accent text-[16px]">
-              {">"} SENHA:
+              {">"} PASSWORD:
             </label>
             <div className="relative flex">
               <span className="min-w-50 text-kat-accent tracking-widest text-[16px]">
-                {(passwordValue?.length ?? 0) > 0 ? `[ ${maskedPassword} ]` : ""}
+                {(passwordValue?.length ?? 0) > 0
+                  ? `[ ${maskedPassword} ]`
+                  : ""}
               </span>
               <input
                 id="password"
@@ -119,7 +122,7 @@ const LoginForm = ({ onSuccess, onClose }: LoginFormProps) => {
               size="auto"
               className="border border-kat-accent px-8 py-3 text-kat-accent transition-all hover:bg-kat-accent hover:text-kat-bg rounded-none uppercase tracking-widest text-[16px] cursor-pointer focus:outline-none focus:ring-2 focus:ring-kat-accent focus:ring-offset-2 focus:ring-offset-kat-bg"
             >
-              [ ENTRAR ]
+              [LOGIN]
             </Button>
           </div>
         </form>
