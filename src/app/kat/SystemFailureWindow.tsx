@@ -54,12 +54,12 @@ const SystemFailureWindow = () => {
 
   return (
     <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-60">
-      <div className="relative pointer-events-auto flex flex-col font-mono w-187.5 max-w-[90vw] h-137.5 max-h-[85dvh]">
+      <div className="relative pointer-events-auto flex flex-col font-mono w-250 max-w-[95vw] h-160 max-h-[90dvh]">
         <div className="absolute inset-0 border-2 border-kat-error -translate-x-1.5 translate-y-0.75 opacity-80 animate-[ping_0.1s_infinite]" />
         <div className="absolute inset-0 border-2 border-kat-accent translate-x-1 -translate-y-0.5 opacity-80 animate-[ping_0.15s_infinite]" />
         <div className="absolute inset-0 border border-kat-glitch-blue -translate-x-0.5 translate-y-1.25 opacity-50 animate-[pulse_0.1s_infinite]" />
 
-        <div className="absolute inset-0 bg-kat-bg/90 backdrop-blur-md border border-kat-accent overflow-hidden flex flex-col shadow-[0_0_50px_var(--kat-error-glow-sm)]">
+        <div className="absolute inset-0 bg-kat-bg/90 backdrop-blur-md border border-kat-accent overflow-hidden flex flex-col kat-window-glow">
           <div className="flex items-center justify-between px-4 py-2 shrink-0 border-b border-kat-accent bg-kat-error/30">
             <span className="text-[14px] font-bold tracking-widest text-kat-error animate-[pulse_0.1s_infinite]">
               SYSTEM_PANIC // TERMINAL_ERR
@@ -70,7 +70,7 @@ const SystemFailureWindow = () => {
             </div>
           </div>
 
-          <div className="flex-1 p-6 overflow-hidden flex flex-col justify-end">
+          <div className="flex-1 p-10 overflow-hidden flex flex-col justify-end">
             <div className="flex flex-col gap-0.5">
               {logs.map((log, i) => (
                 <div
