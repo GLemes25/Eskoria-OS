@@ -15,7 +15,13 @@
       "Bash(git -C /home/gabriel/Documents/projects/eskoria diff --staged)",
       "Bash(git -C /home/gabriel/Documents/projects/eskoria add src/app/components/CustomBoot.tsx src/components/boot/ .claude/settings.json)",
       "Bash(git -C /home/gabriel/Documents/projects/eskoria commit -m ' *)",
-      "Bash(git -C /home/gabriel/Documents/projects/eskoria add src/components/boot/BootFooter.tsx src/components/boot/BootHeader.tsx)"
+      "Bash(git -C /home/gabriel/Documents/projects/eskoria add src/components/boot/BootFooter.tsx src/components/boot/BootHeader.tsx)",
+      "Bash(git commit -m ' *)",
+      "Bash(git push *)",
+      "Bash(git -C /home/gabriel/Documents/projects/Eskoria-OS status)",
+      "Bash(git -C /home/gabriel/Documents/projects/Eskoria-OS diff HEAD)",
+      "Bash(git -C /home/gabriel/Documents/projects/Eskoria-OS add src/app/components/Desktop.tsx src/app/components/Shortcut.tsx .claude/settings.json)",
+      "Bash(git -C /home/gabriel/Documents/projects/Eskoria-OS commit -m ' *)"
     ]
   }
 }

@@ -1,14 +1,14 @@
 "use client";
 
 import Image from "next/image";
+import { type MouseEvent } from "react";
 
 type ShortcutProps = {
   id: string;
   name: string;
   icon: string;
   isActive: boolean;
-  onClick: () => void;
-  onDoubleClick: () => void;
+  onClick: (e: MouseEvent<HTMLDivElement>) => void;
 };
 
 export const Shortcut = ({
@@ -17,20 +17,12 @@ export const Shortcut = ({
   icon,
   isActive,
   onClick,
-  onDoubleClick,
 }: ShortcutProps) => {
   return (
     <div
       data-shortcut-id={id}
       className="flex flex-col items-center justify-start w-19 h-22 cursor-pointer pt-1"
-      onClick={(e) => {
-        e.stopPropagation();
-        onClick();
-      }}
-      onDoubleClick={(e) => {
-        e.stopPropagation();
-        onDoubleClick();
-      }}
+      onClick={onClick}
     >
       <div
         className={`relative w-11 h-11 flex items-center justify-center p-0.5 filter drop-shadow-md mb-1 ${

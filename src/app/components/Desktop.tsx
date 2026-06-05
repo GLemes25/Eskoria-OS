@@ -120,8 +120,10 @@ export const Desktop = () => {
                 name={shortcut.name}
                 icon={shortcut.icon}
                 isActive={activeShortcut === shortcut.id}
-                onClick={() => setActiveShortcut(shortcut.id)}
-                onDoubleClick={() => {
+                onClick={(e) => {
+                  if (e && e.stopPropagation) e.stopPropagation();
+                  setActiveShortcut(shortcut.id);
+
                   if (shortcut.id === "eskoria-so") {
                     setTerminalOpen(true);
                   } else {
