@@ -2,6 +2,7 @@
 
 import { DontOpenOverlay } from "@/components/DontOpenOverlay";
 import { Button } from "@/components/ui/button";
+import { Battery, Bluetooth, ChevronUp, Volume2, Wifi } from "lucide-react";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -55,9 +56,8 @@ export const Taskbar = ({ time, isGlitching }: TaskbarProps) => {
         </span>
       </Button>
 
-      {/* Esconde os atalhos centrais no mobile (hidden md:flex) */}
       <div
-        className={`hidden md:flex items-center justify-center gap-6 h-full px-6 flex-1 ${
+        className={`hidden md:flex  gap-6 h-full px-6 flex-1 ${
           isGlitching ? "opacity-30 blur-[1px]" : ""
         }`}
       >
@@ -68,7 +68,7 @@ export const Taskbar = ({ time, isGlitching }: TaskbarProps) => {
           className="cursor-pointer"
         >
           <Image
-            src="https://www.figma.com/api/mcp/asset/8bde5407-54a9-4286-b74c-d4b5513716fc"
+            src="/shortcuts/internet-explore.png"
             alt="Browser"
             width={28}
             height={28}
@@ -82,7 +82,7 @@ export const Taskbar = ({ time, isGlitching }: TaskbarProps) => {
           className="cursor-pointer"
         >
           <Image
-            src="https://www.figma.com/api/mcp/asset/d67c307a-17e8-4a8a-b3f0-f52ea4d77c80"
+            src="/shortcuts/file-explore .png"
             alt="Files"
             width={28}
             height={28}
@@ -96,7 +96,7 @@ export const Taskbar = ({ time, isGlitching }: TaskbarProps) => {
           className="cursor-pointer"
         >
           <Image
-            src="https://www.figma.com/api/mcp/asset/06d3edc9-1ade-44d8-b954-5d64333547a7"
+            src="/shortcuts/playmusic.png"
             alt="Media"
             width={28}
             height={28}
@@ -110,8 +110,8 @@ export const Taskbar = ({ time, isGlitching }: TaskbarProps) => {
           className="cursor-pointer"
         >
           <Image
-            src="https://www.figma.com/api/mcp/asset/c2893006-01fc-4dc1-93ab-629acac14b24"
-            alt="App"
+            src="/shortcuts/cmd.png"
+            alt="cmd"
             width={28}
             height={28}
             className="object-contain"
@@ -124,111 +124,74 @@ export const Taskbar = ({ time, isGlitching }: TaskbarProps) => {
           isGlitching ? "blur-[1px] translate-x-3" : ""
         }`}
       >
-        {/* Esconde os ícones de sistema menores no mobile */}
-        <div className="hidden lg:flex items-center gap-5">
+        <div className="hidden lg:flex items-center gap-4">
           <Button
             variant="bare"
             size="auto"
             onClick={triggerOverlay}
-            className="cursor-pointer text-lg tracking-wider"
+            className="cursor-pointer"
+          >
+            <ChevronUp
+              className={`w-4 h-4 ${isGlitching ? "text-kat-error" : "text-kat-text"}`}
+            />
+          </Button>
+
+          <Button
+            variant="bare"
+            size="auto"
+            onClick={triggerOverlay}
+            className="cursor-pointer text-sm font-bold tracking-wider"
           >
             <span className={isGlitching ? "text-kat-error" : "text-kat-text"}>
               EN
             </span>
           </Button>
+
           <Button
             variant="bare"
             size="auto"
             onClick={triggerOverlay}
             className="cursor-pointer"
           >
-            <Image
-              src="https://www.figma.com/api/mcp/asset/68d0c76c-fefe-4972-bee4-36e913e1fefb"
-              alt=""
-              width={14}
-              height={9}
-              unoptimized
-              className="object-contain"
+            <Bluetooth
+              className={`w-4 h-4 ${isGlitching ? "text-kat-error" : "text-kat-text"}`}
             />
           </Button>
+
           <Button
             variant="bare"
             size="auto"
             onClick={triggerOverlay}
             className="cursor-pointer"
           >
-            <Image
-              src="https://www.figma.com/api/mcp/asset/001ca0b0-7724-4281-bb01-9db4053dcb65"
-              alt="WiFi"
-              width={18}
-              height={18}
-              unoptimized
-              className="object-contain"
+            <Wifi
+              className={`w-4.5 h-4.5 ${isGlitching ? "text-kat-error" : "text-kat-text"}`}
             />
           </Button>
+
           <Button
             variant="bare"
             size="auto"
             onClick={triggerOverlay}
             className="cursor-pointer"
           >
-            <Image
-              src="https://www.figma.com/api/mcp/asset/1106bada-030e-4945-bfa9-773eb125a754"
-              alt=""
-              width={14}
-              height={13}
-              unoptimized
-              className="object-contain"
+            <Volume2
+              className={`w-4.5 h-4.5 ${isGlitching ? "text-kat-error" : "text-kat-text"}`}
             />
           </Button>
+
           <Button
             variant="bare"
             size="auto"
             onClick={triggerOverlay}
             className="cursor-pointer"
           >
-            <Image
-              src="https://www.figma.com/api/mcp/asset/71e24a7e-1a63-4dce-a844-832108f23fdc"
-              alt=""
-              width={10}
-              height={14}
-              unoptimized
-              className="object-contain"
-            />
-          </Button>
-          <Button
-            variant="bare"
-            size="auto"
-            onClick={triggerOverlay}
-            className="cursor-pointer"
-          >
-            <Image
-              src="https://www.figma.com/api/mcp/asset/aa34de6c-ac50-4d4b-9e05-1ff3690e1a60"
-              alt=""
-              width={11}
-              height={15}
-              unoptimized
-              className="object-contain"
-            />
-          </Button>
-          <Button
-            variant="bare"
-            size="auto"
-            onClick={triggerOverlay}
-            className="cursor-pointer"
-          >
-            <Image
-              src="https://www.figma.com/api/mcp/asset/d723f452-003c-4d2e-af1e-7d4f26f9ca7e"
-              alt=""
-              width={13}
-              height={11}
-              unoptimized
-              className="object-contain"
+            <Battery
+              className={`w-4.5 h-4.5 ${isGlitching ? "text-kat-error" : "text-kat-text"}`}
             />
           </Button>
         </div>
 
-        {/* Relógio sempre visível */}
         <div className="text-center shrink-0">
           <p
             className={`font-bold tracking-wider text-[12px] md:text-[16px] leading-tight ${
