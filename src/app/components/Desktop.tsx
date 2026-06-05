@@ -3,14 +3,15 @@
 import { GlobalGlitchOverlay } from "@/app/components/GlobalGlitchOverlay";
 import { Shortcut } from "@/app/components/Shortcut";
 import { Taskbar } from "@/app/components/Taskbar";
-import { DontOpenOverlay } from "@/components/DontOpenOverlay";
 import CinematicReveal from "@/app/kat/CinematicReveal";
 import LoginForm from "@/app/kat/LoginForm";
 import ProtocolSelection from "@/app/kat/ProtocolSelection";
 import SystemFailureWindow from "@/app/kat/SystemFailureWindow";
+import { DontOpenOverlay } from "@/components/DontOpenOverlay";
 import shortcutsData from "@/data/shortcuts.json";
 import Image from "next/image";
 import { useEffect, useState } from "react";
+import { AlertManager } from "./AlertManager";
 
 const BG_URL = "/wallpaper.png";
 const MESH_URL = "/effectwallpaper.jpg";
@@ -33,7 +34,6 @@ export const Desktop = () => {
     }
   }, [isGlitching]);
 
-
   useEffect(() => {
     const updateClock = () => {
       const now = new Date();
@@ -53,6 +53,7 @@ export const Desktop = () => {
       style={{ fontFamily: "'JetBrains Mono', monospace" }}
     >
       {isGlitching && !isRevealing && <GlobalGlitchOverlay />}
+      {!isRevealing && <AlertManager />}
 
       <div
         className={`relative flex-1 w-full overflow-hidden ${isGlitching ? "animate-[pulse_0.2s_infinite]" : ""}`}
